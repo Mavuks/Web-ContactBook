@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <title>Kontaktid</title>
+    <link rel="stylesheet" type="text/css" href="Main.css">
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="?cmd=view" id="list-page-link">Nimekiri</a></li>
+        <li><a href="?cmd=add" id="add-page-link">Lisa</a></li>
+    </ul>
+</div>
+
+<form method="post" action="?cmd=add_person">
+    <table class="adding-table">
+        <tr>
+            <td>Eesnimi:</td>
+            <td><input name="firstName" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Perekonnanimi:</td>
+            <td><input name="lastName" type="text" /></td>
+        </tr>
+        <tr>
+            <td>Telefon:</td>
+            <td><input name="phone1" type="text"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input name="phone2" type="text"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input name="phone3" type="text"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" formmethod="post" value="Salvesta" name="submitButton" /></td>
+        </tr>
+    </table>
+</form>
+<div id="footer1">ICD0007 Näidisrakendus</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="utf-8">
+    <title>Kontaktid</title>
+    <link rel="stylesheet" type="text/css" href="Main.css">
+</head>
+<body>
+<div>
+    <ul>
+        <li><a href="?cmd=view" id="list-page-link">Nimekiri</a></li>
+        <li><a href="?cmd=add" id="add-page-link">Lisa</a></li>
+    </ul>
+</div>
+<table>
+    <tr>
+        <th>Eesnimi:</th>
+        <th>Perekonnanimi:</th>
+        <th>Telefon:</th>
+    </tr>
+    <tr tpl-foreach="$persons as $person">
+        <td>
+            {{ $person->firstName }}
+        </td>
+        <td>
+            {{ $person->lastName }}
+        </td>
+        <td>
+            {{ $person->get_all_phones() }}
+        </td>
+    </tr>
+</table>
+<div id="footer1">ICD0007 Näidisrakendus</div>
+</body>
+</html>
