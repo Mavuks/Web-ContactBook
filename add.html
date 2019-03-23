@@ -13,19 +13,19 @@
     </ul>
 </div>
 
-<form method="post" action="?cmd=add_person">
+<form method="post" action="?cmd=add-contact">
     <table class="adding-table">
         <tr>
             <td>Eesnimi:</td>
-            <td><input name="firstName" type="text" /></td>
+            <td><input name="firstName" type="text" placeholder="Eesnimi:" /></td>
         </tr>
         <tr>
             <td>Perekonnanimi:</td>
-            <td><input name="lastName" type="text" /></td>
+            <td><input name="lastName" type="text" placeholder="Perekonnanimi:" /></td>
         </tr>
         <tr>
             <td>Telefon:</td>
-            <td><input name="phone" type="text"/></td>
+            <td><input name="phone" type="text" placeholder="Telefon:"/></td>
         </tr>
         <!--<tr>-->
             <!--<td></td>-->
@@ -37,7 +37,7 @@
         <!--</tr>-->
         <tr>
             <td></td>
-            <td><input type="submit" formmethod="post" value="Salvesta" name="submitButton" /></td>
+            <td><input type="submit" formmethod="post" value="Salvesta" name="submitButton"/></td>
         </tr>
     </table>
 </form>

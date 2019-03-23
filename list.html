@@ -18,7 +18,7 @@
         <th>Perekonnanimi:</th>
         <th>Telefon:</th>
     </tr>
-    <tr tpl-foreach="$persons as $person">
+    <tr tpl-foreach="$contacts as $person">
         <td>
             {{ $person->firstName }}
         </td>
@@ -26,7 +26,7 @@
             {{ $person->lastName }}
         </td>
         <td>
-            {{ $person->get_all_phones() }}
+            {{ $person->phone }}
         </td>
     </tr>
 </table>
