@@ -18,15 +18,15 @@
         <th>Perekonnanimi:</th>
         <th>Telefon:</th>
     </tr>
-    <tr tpl-foreach="$contacts as $person">
+    <tr tpl-foreach="$contacts as $contact">
         <td>
-            {{ $person->firstName }}
+            {{ $contact->firstName }}
         </td>
         <td>
-            {{ $person->lastName }}
+            {{ $contact->lastName }}
         </td>
         <td>
-            {{ $person->phone }}
+            <span tpl-foreach="$contact->phone as $number">{{ $number }} </span>
         </td>
     </tr>
 </table>

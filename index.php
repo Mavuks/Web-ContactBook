@@ -1,50 +1,45 @@
 <?php
 require_once("lib/tpl.php");
-require_once("Contact.php");
-const CONTACT_FILE  = "Contacts.txt";
+require_once("contact.php");
+require ("contactDao.php");
 
+$connection = new sqliteContactDao();
+$id = $connection->GetId();
 
 $cmd = isset($_GET["cmd"]) ? $_GET["cmd"] : "view";
 
 
 if ($cmd === "view") {
-    $contacts = readContact();
+    $contacts = $connection->GetContact();
+    $data['$contacts'] = $contacts;
 
-    print render_template("list.html", ['$contacts'  => $contacts]);
+     print render_template("list.html", $data);
 
 } else if ($cmd === "add") {
 
     print render_template("add.html");
 
 }else if ($cmd === "add-contact"){
-     $firstName = $_POST["firstName"];
-
-     file_put_contents(CONTACT_FILE, $firstName . ";", FILE_APPEND);
-
-     $lastName = $_POST["lastName"];
-
-     file_put_contents(CONTACT_FILE, $lastName . ";", FILE_APPEND);
-
-     $phone = $_POST["phone"];
-
-     file_put_contents(CONTACT_FILE, $phone . PHP_EOL, FILE_APPEND);
-     $contacts = readContact();
-
-     print render_template("list.html", ['$contacts' => $contacts]);
-}
 
 
-function readContact()
-{
-    $lines = file(CONTACT_FILE);
+    $firstname = $_POST["firstName"];
+    $lastname = $_POST["lastName"];
+    $number1 = $_POST["phone1"];
+    $number2 = $_POST["phone2"];
+    $number3 = $_POST["phone3"];
 
-       foreach ($lines as $line) {
-
-            $parts = explode(";", trim($line));
-
-            list($firstName, $lastName, $phone) = $parts;
-
-            $contacts[] = new Contact($firstName, $lastName, $phone);
+    if (isset($firstname) && isset($lastname)) {
+        $connection->saveContact($firstname, $lastname);
     }
-    return $contacts;
+    if (isset($number1)) {
+        $connection->saveNumber($id, $number1);
+    }
+    if (isset($number2)) {
+        $connection->saveNumber($id, $number2);
+    }
+    if (isset($number3)) {
+        $connection->saveNumber($id, $number3);
+    }
+    header("Location: ?cmd=view");
 }
+
