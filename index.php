@@ -1,7 +1,7 @@
 <?php
 require_once("lib/tpl.php");
-require_once("contact.php");
-require ("contactDao.php");
+require_once("Contact.php");
+require_once("contactDao.php");
 
 $connection = new sqliteContactDao();
 $id = $connection->GetId();
